@@ -14,14 +14,35 @@ namespace B4R73ND3R
 {
     public partial class Form1 : Form
     {
+        private BrainReader bRdr = new BrainReader();
+        private FFT_Analyzer fft = new FFT_Analyzer();
+        private List<List<float>> dataChunk = new List<List<float>>();
+
         public Form1()
         {
             InitializeComponent();
+            resetDataChunk();
         }
 
         public override void Refresh()
         { 
             base.Refresh();
+        }
+
+        void resetDataChunk()
+        {
+            if (dataChunk.Count > 0)
+            {
+                for (int i = 0; i < dataChunk.Count; i++)
+                {
+                    fft.doFFT(dataChunk[i]);
+                }
+            }
+
+            dataChunk.Clear();
+
+            for (int i = 0; i < 17; i++)
+                dataChunk.Add(new List<float>());
         }
 
 
@@ -47,7 +68,7 @@ namespace B4R73ND3R
             timer4.Enabled = true;
 
             //DEBUG READER
-            BrainReader bRdr = new BrainReader();
+            bRdr = new BrainReader();
             IList<string> devices = bRdr.getAllDevices();
 
             if (devices.Count > 0)
@@ -60,6 +81,33 @@ namespace B4R73ND3R
                 worker.SetApartmentState(ApartmentState.STA);
                 worker.Start();
             }
+        }
+
+        private void Timer5_Tick(object sender, EventArgs e)
+        {
+            outputBox.Text = "";
+
+            //TICK REFRESH
+            for (int i = 0; i < bRdr.currentDataBuffer.Length; i++)
+            {
+                dataChunk[i].Add(bRdr.currentDataBuffer[i]);
+                outputBox.Text += "Channel " + i.ToString() + ": " + bRdr.currentDataBuffer[i] + "\n";
+            }
+        }
+
+        private void Ch1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChunkTimer_Tick(object sender, EventArgs e)
+        {
+            resetDataChunk();
         }
 
         private void timer2_Tick(object sender, EventArgs e)

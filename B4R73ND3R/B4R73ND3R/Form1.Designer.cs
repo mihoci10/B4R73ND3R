@@ -38,6 +38,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.GlobalTimer = new System.Windows.Forms.Timer(this.components);
+            this.outputBox = new System.Windows.Forms.RichTextBox();
+            this.chunkTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -77,7 +80,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(188, 285);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 194);
             this.pictureBox1.TabIndex = 5;
@@ -86,7 +89,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(566, 285);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 194);
             this.pictureBox2.TabIndex = 6;
@@ -95,7 +98,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(934, 285);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(200, 194);
             this.pictureBox3.TabIndex = 7;
@@ -104,24 +107,45 @@
             // pictureBox4
             // 
             this.pictureBox4.Location = new System.Drawing.Point(1350, 285);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(200, 194);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
+            // GlobalTimer
+            // 
+            this.GlobalTimer.Enabled = true;
+            this.GlobalTimer.Interval = 50;
+            this.GlobalTimer.Tick += new System.EventHandler(this.Timer5_Tick);
+            // 
+            // outputBox
+            // 
+            this.outputBox.Location = new System.Drawing.Point(1627, 17);
+            this.outputBox.Name = "outputBox";
+            this.outputBox.Size = new System.Drawing.Size(900, 950);
+            this.outputBox.TabIndex = 9;
+            this.outputBox.Text = "";
+            // 
+            // chunkTimer
+            // 
+            this.chunkTimer.Enabled = true;
+            this.chunkTimer.Interval = 1000;
+            this.chunkTimer.Tick += new System.EventHandler(this.ChunkTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1876, 789);
+            this.ClientSize = new System.Drawing.Size(2539, 979);
+            this.Controls.Add(this.outputBox);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Frequency);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "/";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -144,5 +168,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Timer GlobalTimer;
+        private System.Windows.Forms.RichTextBox outputBox;
+        private System.Windows.Forms.Timer chunkTimer;
     }
 }

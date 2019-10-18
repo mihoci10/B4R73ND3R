@@ -31,3 +31,6 @@ C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\obj\Debug\B4R73ND3R.cs
 C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\obj\Debug\B4R73ND3R.csproj.CopyComplete
 C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\obj\Debug\B4R73ND3R.exe
 C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\obj\Debug\B4R73ND3R.pdb
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\DSP.dll
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\MathNet.Numerics.dll
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\MathNet.Numerics.xml

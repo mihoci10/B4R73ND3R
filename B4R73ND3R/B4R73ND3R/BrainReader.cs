@@ -11,7 +11,7 @@ class BrainReader
 {
     // Specifications for the data acquisition.
     //-------------------------------------------------------------------------------------
-    const bool TestSignalEnabled = true;
+    const bool TestSignalEnabled = false;
     const uint FrameLength = 1;
     const uint AcquisitionDurationInSeconds = 10;
     const string DataFile = "data.bin";

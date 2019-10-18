@@ -52,6 +52,11 @@ namespace B4R73ND3R
             pic1 = !pic1;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (pic2) pictureBox2.BackColor = red;

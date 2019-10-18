@@ -37,6 +37,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.Frequency = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -61,23 +62,12 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 100;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer2
             // 
             this.timer2.Interval = 120;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 140;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Interval = 160;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // pictureBox3
             // 
@@ -95,27 +85,48 @@
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             // 
+            // timer3
+            // 
+            this.timer3.Interval = 140;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Interval = 160;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // Frequency
+            // 
+            this.Frequency.AutoSize = true;
+            this.Frequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Frequency.Location = new System.Drawing.Point(12, 9);
+            this.Frequency.Name = "Frequency";
+            this.Frequency.Size = new System.Drawing.Size(149, 32);
+            this.Frequency.TabIndex = 4;
+            this.Frequency.Text = "Frequency:";
+            this.Frequency.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 407);
+            this.Controls.Add(this.Frequency);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "/";
-            this.Load += new System.EventHandler(this.pictureBox1_Load);
-            this.Load += new System.EventHandler(this.pictureBox2_Load);
-            this.Load += new System.EventHandler(this.pictureBox3_Load);
             this.Load += new System.EventHandler(this.pictureBox4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,5 +140,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Label Frequency;
     }
 }

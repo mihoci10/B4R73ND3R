@@ -21,26 +21,6 @@ namespace B4R73ND3R
 
 
 
-        private void pictureBox1_Load(object sender, EventArgs e)
-        {
-            timer1.Start();
-            timer1.Enabled = true;
-        }
-        private void pictureBox2_Load(object sender, EventArgs e)
-        {
-            timer2.Start();
-            timer2.Enabled = true;
-        }
-        private void pictureBox3_Load(object sender, EventArgs e)
-        {
-            timer3.Start();
-            timer3.Enabled = true;
-        }
-        private void pictureBox4_Load(object sender, EventArgs e)
-        {
-            timer4.Start();
-            timer4.Enabled = true;
-        }
 
         Color red = Color.Red;
         Color bg = Color.Transparent;
@@ -50,6 +30,18 @@ namespace B4R73ND3R
             if (pic1) pictureBox1.BackColor = red;
             else pictureBox1.BackColor = bg;
             pic1 = !pic1;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            timer1.Enabled = true;
+            timer2.Start();
+            timer2.Enabled = true;
+            timer3.Start();
+            timer3.Enabled = true;
+            timer4.Start();
+            timer4.Enabled = true;
         }
 
         private void timer2_Tick(object sender, EventArgs e)

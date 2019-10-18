@@ -316,5 +316,21 @@ namespace Gtec.ArduinoGinTonic
         }
 
         #endregion
+
+        public void Pump(int St, int Time)
+        {
+            int pump = 0;
+            if (St == 1) {
+                pump = 3;
+                    }
+            else
+            {
+                pump = 11;
+            }
+
+            SetDigitalIO(pump, 240);
+            Thread.Sleep(Time);
+            SetDigitalIO(pump, 0);
+        }
     }
 }

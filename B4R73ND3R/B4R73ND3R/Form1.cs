@@ -19,28 +19,11 @@ namespace B4R73ND3R
             InitializeComponent();
         }
 
+        public override void Refresh()
+        { 
+            base.Refresh();
+        }
 
-
-        private void pictureBox1_Load(object sender, EventArgs e)
-        {
-            timer1.Start();
-            timer1.Enabled = true;
-        }
-        private void pictureBox2_Load(object sender, EventArgs e)
-        {
-            timer2.Start();
-            timer2.Enabled = true;
-        }
-        private void pictureBox3_Load(object sender, EventArgs e)
-        {
-            timer3.Start();
-            timer3.Enabled = true;
-        }
-        private void pictureBox4_Load(object sender, EventArgs e)
-        {
-            timer4.Start();
-            timer4.Enabled = true;
-        }
 
         Color red = Color.Red;
         Color bg = Color.Transparent;
@@ -52,9 +35,31 @@ namespace B4R73ND3R
             pic1 = !pic1;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            timer1.Enabled = true;
+            timer2.Start();
+            timer2.Enabled = true;
+            timer3.Start();
+            timer3.Enabled = true;
+            timer4.Start();
+            timer4.Enabled = true;
 
+            //DEBUG READER
+            BrainReader bRdr = new BrainReader();
+            IList<string> devices = bRdr.getAllDevices();
+
+            if (devices.Count > 0)
+            {
+                bRdr.assignDevice(devices[0]);
+                bRdr.initAcquisitionMembers();
+
+                Thread worker = new Thread(bRdr.Read);
+                worker.IsBackground = true;
+                worker.SetApartmentState(ApartmentState.STA);
+                worker.Start();
+            }
         }
 
         private void timer2_Tick(object sender, EventArgs e)

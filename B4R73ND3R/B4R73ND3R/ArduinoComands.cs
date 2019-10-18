@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Gtec.ArduinoGinTonic
+namespace Gtec.ArduinoComands
 {
     /// <summary>
     /// Provides the functionallity to interact with the Arduino Smart Home environment.

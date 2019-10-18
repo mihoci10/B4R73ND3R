@@ -6,3 +6,5 @@ B4R73ND3R/.vs/B4R73ND3R/v16/Server/sqlite3/storage.ide-shm
 B4R73ND3R/.vs/B4R73ND3R/v16/Server/sqlite3/storage.ide-wal
 B4R73ND3R/B4R73ND3R/obj/Debug/B4R73ND3R.csprojAssemblyReference.cache
 B4R73ND3R/.vs/B4R73ND3R/v16/Server/sqlite3/storage.ide-shm
+*.ide-wal
+*.ide-shm

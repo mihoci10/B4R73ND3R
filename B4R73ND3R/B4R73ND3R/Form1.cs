@@ -19,7 +19,10 @@ namespace B4R73ND3R
             InitializeComponent();
         }
 
-
+        public override void Refresh()
+        { 
+            base.Refresh();
+        }
 
 
         Color red = Color.Red;
@@ -42,6 +45,21 @@ namespace B4R73ND3R
             timer3.Enabled = true;
             timer4.Start();
             timer4.Enabled = true;
+
+            //DEBUG READER
+            BrainReader bRdr = new BrainReader();
+            IList<string> devices = bRdr.getAllDevices();
+
+            if (devices.Count > 0)
+            {
+                bRdr.assignDevice(devices[0]);
+                bRdr.initAcquisitionMembers();
+
+                Thread worker = new Thread(bRdr.Read);
+                worker.IsBackground = true;
+                worker.SetApartmentState(ApartmentState.STA);
+                worker.Start();
+            }
         }
 
         private void timer2_Tick(object sender, EventArgs e)

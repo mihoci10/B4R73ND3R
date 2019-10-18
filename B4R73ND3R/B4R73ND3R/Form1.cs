@@ -51,6 +51,7 @@ namespace B4R73ND3R
             else pictureBox1.BackColor = bg;
             pic1 = !pic1;
         }
+
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (pic2) pictureBox2.BackColor = red;

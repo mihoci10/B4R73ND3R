@@ -34,3 +34,10 @@ C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\obj\Debug\B4R73ND3R.pd
 C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\DSP.dll
 C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\MathNet.Numerics.dll
 C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\MathNet.Numerics.xml
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\intendiX.exe
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\Gtec.WordPrediction.dll
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\MatrixLib.dll
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\alglibnet2.dll
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\SQLite.Net.dll
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\SQLite.Net.Platform.Win32.dll
+C:\Users\Miha\Desktop\B4R73ND3R5\repo\B4R73ND3R\B4R73ND3R\bin\Debug\intendiX.exe.config

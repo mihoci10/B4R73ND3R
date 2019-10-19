@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -16,15 +17,15 @@ namespace B4R73ND3R
 {
     public partial class Form1 : Form
     {
-        private BrainReader bRdr = new BrainReader();
-        private FFT_Analyzer fft = new FFT_Analyzer();
         private List<List<float>> dataChunk = new List<List<float>>();
+        private double[] peakFrequencies = new double[17];
         private DateTime lastTime;
+        private UdpReceiver udp = new UdpReceiver();
+        ArduinoComands arduino = new ArduinoComands();
 
         public Form1()
         {
             InitializeComponent();
-            resetDataChunk();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -73,59 +74,21 @@ namespace B4R73ND3R
             base.Refresh();
         }
 
-        void resetDataChunk()
-        {
-            if (dataChunk.Count > 0 ||lastTime != null)
-            {
-                for (int i = 0; i < dataChunk.Count; i++)
-                {
-                    fft.doFFT(dataChunk[i], (lastTime - DateTime.Now).TotalMilliseconds);
-                }
-            }
-
-            dataChunk.Clear();
-
-            for (int i = 0; i < 17; i++)
-                dataChunk.Add(new List<float>());
-
-            lastTime = DateTime.Now;
-        }
-        ArduinoComands arduino = new ArduinoComands();
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            udp.DataReceivedEvent += GetUdpPackage;
+            Thread thread = new Thread(udp.receivePacket);
+            thread.Start();
+        }
 
-            //DEBUG READER
-            bRdr = new BrainReader();
-            IList<string> devices = bRdr.getAllDevices();
-
-            if (devices.Count > 0)
-            {
-                bRdr.assignDevice(devices[0]);
-                bRdr.initAcquisitionMembers();
-
-                Thread worker = new Thread(bRdr.Read);
-                worker.IsBackground = true;
-                worker.SetApartmentState(ApartmentState.STA);
-                worker.Start();
-            }
+        private void GetUdpPackage(object sender,ReceivedDataArgs args)
+        {
+            Console.WriteLine("UDP received from: "+args.ipAdd+":"+args.port+" Message said: "+ (args.receivedItem.Name));
         }
 
         private void GlobalTimer_Tick(object sender, EventArgs e)
         {
-            outputBox.Text = "";
 
-            //TICK REFRESH
-            for (int i = 0; i < bRdr.currentDataBuffer.Length; i++)
-            {
-                dataChunk[i].Add(bRdr.currentDataBuffer[i]);
-                outputBox.Text += "Channel " + i.ToString() + ": " + bRdr.currentDataBuffer[i] + "\n";
-            }
-
-            if (dataChunk[0].Count == 256)
-            {
-                resetDataChunk();
-            }
         }
 
         private void Ch1_Click(object sender, EventArgs e)

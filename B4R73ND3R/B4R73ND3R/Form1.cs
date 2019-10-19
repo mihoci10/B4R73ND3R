@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -17,11 +16,9 @@ namespace B4R73ND3R
 {
     public partial class Form1 : Form
     {
-        private List<List<float>> dataChunk = new List<List<float>>();
-        private double[] peakFrequencies = new double[17];
-        private DateTime lastTime;
-        private UdpReceiver udp = new UdpReceiver();
+
         ArduinoComands arduino = new ArduinoComands();
+        UdpReceiver udp = new UdpReceiver();
 
         public Form1()
         {
@@ -70,7 +67,7 @@ namespace B4R73ND3R
         }
 
         public override void Refresh()
-        { 
+        {
             base.Refresh();
         }
 
@@ -81,14 +78,14 @@ namespace B4R73ND3R
             thread.Start();
         }
 
-        private void GetUdpPackage(object sender,ReceivedDataArgs args)
+        private void GetUdpPackage(object sender, ReceivedDataArgs args)
         {
-            Console.WriteLine("UDP received from: "+args.ipAdd+":"+args.port+" Message said: "+ (args.receivedItem.Name));
+            Console.WriteLine("UDP received from: " + args.ipAdd + ":" + args.port + " Message said: " + (args.receivedItem.Name));
         }
 
         private void GlobalTimer_Tick(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Ch1_Click(object sender, EventArgs e)
@@ -131,7 +128,8 @@ namespace B4R73ND3R
         {
             if (!connected) connected = arduino.Connect(comboBox1.Text);
             else connected = arduino.Disconnect();
-            if (connected) { 
+            if (connected)
+            {
                 connect.Text = "DISCONNECT";
                 connect.BackColor = Color.Red;
                 timer1.Start();
@@ -150,7 +148,7 @@ namespace B4R73ND3R
                 timer3.Stop();
                 timer4.Stop();
                 timer5.Stop();
-                gin1tonic5.BackColor = bg; 
+                gin1tonic5.BackColor = bg;
                 gin1tonic3.BackColor = bg;
                 gin1tonic1.BackColor = bg;
                 random.BackColor = bg;
@@ -186,9 +184,10 @@ namespace B4R73ND3R
                 console.Text = ">";
                 this.Width = 800;
             }
-            else {
+            else
+            {
                 console.Text = "<";
-                this.Width = 1300; 
+                this.Width = 1300;
             }
             _console = !_console;
 
@@ -209,11 +208,12 @@ namespace B4R73ND3R
         {
             _gin = !_gin;
             if (_gin) arduino.gin_on();
-            else { 
+            else
+            {
                 arduino.gin_off();
                 ginTimer.Stop();
             }
-            
+
         }
 
         private void confirm_button_Click(object sender, EventArgs e)

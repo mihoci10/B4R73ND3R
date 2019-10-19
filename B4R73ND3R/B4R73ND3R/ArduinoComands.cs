@@ -319,28 +319,14 @@ namespace Gtec.ArduinoComands
 
         #endregion
 
-        public void Pump(int StT, int StG)
-        {
-            if (StG > StT)
-            {
-                SetDigitalIO(3, 255);
-                SetDigitalIO(11, 255);
-                //timer StT
-                SetDigitalIO(3, 0);
-                //Timer StG
-                SetDigitalIO(11, 0);
-            }
-            else
-            {
-                SetDigitalIO(3, 255);
-                SetDigitalIO(11, 255);
-                //timer StG
-                SetDigitalIO(11, 0);
-                //Timer StT
-                SetDigitalIO(3, 0);
-            }
 
-            
-        }
+        public void tonic_on() => SetDigitalIO(3, 255);
+
+        public void tonic_off() => SetDigitalIO(3, 0);
+
+        public void gin_on() => SetDigitalIO(11, 255);
+
+        public void gin_off() => SetDigitalIO(11, 0);
+
     }
 }

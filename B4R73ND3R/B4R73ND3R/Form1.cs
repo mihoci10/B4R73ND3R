@@ -176,6 +176,7 @@ namespace B4R73ND3R
                 timer3.Start();
                 timer4.Start();
                 timer5.Start();
+                menu.Hide();
             }
             else
             {
@@ -207,6 +208,55 @@ namespace B4R73ND3R
             {
                 comboBox1.Items.Add(a);
             }
+        }
+
+
+        private void gin1tonic3button_Click(object sender, EventArgs e)
+        {
+
+        }
+        bool _console = false;
+        private void console_Click(object sender, EventArgs e)
+        {
+            if (_console)
+            {
+                console.Text = ">";
+                this.Width = 800;
+            }
+            else {
+                console.Text = "<";
+                this.Width = 1300; 
+            }
+            _console = !_console;
+
+        }
+        bool _tonic = false;
+        private void tonicTimer_Tick(object sender, EventArgs e)
+        {
+            _tonic = !_tonic;
+            if (_tonic) arduino.tonic_on();
+            else
+            {
+                arduino.tonic_off();
+                tonicTimer.Stop();
+            }
+        }
+        bool _gin = false;
+        private void ginTimer_Tick(object sender, EventArgs e)
+        {
+            _gin = !_gin;
+            if (_gin) arduino.gin_on();
+            else { 
+                arduino.gin_off();
+                ginTimer.Stop();
+            }
+            
+        }
+
+        private void confirm_button_Click(object sender, EventArgs e)
+        {
+            ginTimer.Start();
+            tonicTimer.Start();
         }
 
         private void timer2_Tick(object sender, EventArgs e)

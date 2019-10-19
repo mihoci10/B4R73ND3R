@@ -33,7 +33,6 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.Frequency = new System.Windows.Forms.Label();
             this.GlobalTimer = new System.Windows.Forms.Timer(this.components);
             this.outputBox = new System.Windows.Forms.RichTextBox();
             this.chunkTimer = new System.Windows.Forms.Timer(this.components);
@@ -46,11 +45,6 @@
             this.gin1tonic1 = new System.Windows.Forms.PictureBox();
             this.gin1tonic3 = new System.Windows.Forms.PictureBox();
             this.gin1tonic5 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -59,6 +53,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Username = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.ginTimer = new System.Windows.Forms.Timer(this.components);
+            this.gin1tonic5button = new System.Windows.Forms.Button();
+            this.gin1tonic3button = new System.Windows.Forms.Button();
+            this.moodbutton = new System.Windows.Forms.Button();
+            this.gin1tonic1button = new System.Windows.Forms.Button();
+            this.randombutton = new System.Windows.Forms.Button();
+            this.console = new System.Windows.Forms.Button();
+            this.tonicTimer = new System.Windows.Forms.Timer(this.components);
+            this.confirm_button = new System.Windows.Forms.Button();
+            this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.random)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gin1tonic1)).BeginInit();
@@ -86,16 +90,6 @@
             this.timer4.Interval = 160;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // Frequency
-            // 
-            this.Frequency.AutoSize = true;
-            this.Frequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Frequency.Location = new System.Drawing.Point(46, 35);
-            this.Frequency.Name = "Frequency";
-            this.Frequency.Size = new System.Drawing.Size(157, 32);
-            this.Frequency.TabIndex = 4;
-            this.Frequency.Text = "Frequency:";
-            // 
             // GlobalTimer
             // 
             this.GlobalTimer.Enabled = true;
@@ -119,11 +113,13 @@
             // 
             // Header
             // 
-            this.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Header.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Header.Controls.Add(this.Minimize);
+            this.Header.Controls.Add(this.close);
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(936, 30);
+            this.Header.Size = new System.Drawing.Size(800, 30);
             this.Header.TabIndex = 9;
             this.Header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Header_MouseMove_1);
             // 
@@ -133,7 +129,7 @@
             this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Minimize.FlatAppearance.BorderSize = 0;
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Location = new System.Drawing.Point(876, 0);
+            this.Minimize.Location = new System.Drawing.Point(739, 0);
             this.Minimize.Margin = new System.Windows.Forms.Padding(0);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(30, 30);
@@ -148,7 +144,7 @@
             this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.close.FlatAppearance.BorderSize = 0;
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.close.Location = new System.Drawing.Point(906, 0);
+            this.close.Location = new System.Drawing.Point(769, 0);
             this.close.Margin = new System.Windows.Forms.Padding(0);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(30, 30);
@@ -165,7 +161,7 @@
             // mood
             // 
             this.mood.Image = global::B4R73ND3R.Properties.Resources.insight_rich_change_poor_joelson;
-            this.mood.Location = new System.Drawing.Point(297, 96);
+            this.mood.Location = new System.Drawing.Point(300, 80);
             this.mood.Name = "mood";
             this.mood.Size = new System.Drawing.Size(200, 200);
             this.mood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -175,7 +171,7 @@
             // random
             // 
             this.random.Image = global::B4R73ND3R.Properties.Resources.EPIC_KUZARC2;
-            this.random.Location = new System.Drawing.Point(551, 370);
+            this.random.Location = new System.Drawing.Point(565, 350);
             this.random.Name = "random";
             this.random.Size = new System.Drawing.Size(200, 200);
             this.random.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -185,7 +181,7 @@
             // gin1tonic1
             // 
             this.gin1tonic1.Image = global::B4R73ND3R.Properties.Resources.EPIC_KUZARC2;
-            this.gin1tonic1.Location = new System.Drawing.Point(551, 96);
+            this.gin1tonic1.Location = new System.Drawing.Point(565, 80);
             this.gin1tonic1.Name = "gin1tonic1";
             this.gin1tonic1.Size = new System.Drawing.Size(200, 200);
             this.gin1tonic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -195,7 +191,7 @@
             // gin1tonic3
             // 
             this.gin1tonic3.Image = global::B4R73ND3R.Properties.Resources.EPIC_KUZARC2;
-            this.gin1tonic3.Location = new System.Drawing.Point(34, 370);
+            this.gin1tonic3.Location = new System.Drawing.Point(35, 350);
             this.gin1tonic3.Name = "gin1tonic3";
             this.gin1tonic3.Size = new System.Drawing.Size(200, 200);
             this.gin1tonic3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -206,62 +202,12 @@
             // 
             this.gin1tonic5.BackColor = System.Drawing.Color.Transparent;
             this.gin1tonic5.Image = global::B4R73ND3R.Properties.Resources.EPIC_KUZARC2;
-            this.gin1tonic5.Location = new System.Drawing.Point(34, 96);
+            this.gin1tonic5.Location = new System.Drawing.Point(35, 80);
             this.gin1tonic5.Name = "gin1tonic5";
             this.gin1tonic5.Size = new System.Drawing.Size(200, 200);
             this.gin1tonic5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gin1tonic5.TabIndex = 5;
             this.gin1tonic5.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(105, 299);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 33);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "1:5";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(105, 573);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 33);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "1:3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(624, 299);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 33);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "1:1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(579, 573);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 33);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "RANDOM";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(342, 299);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 33);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "MOOD";
             // 
             // menu
             // 
@@ -275,7 +221,7 @@
             this.menu.Location = new System.Drawing.Point(0, 30);
             this.menu.Margin = new System.Windows.Forms.Padding(0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(282, 622);
+            this.menu.Size = new System.Drawing.Size(280, 590);
             this.menu.TabIndex = 18;
             // 
             // button1
@@ -355,34 +301,136 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // ginTimer
+            // 
+            this.ginTimer.Tick += new System.EventHandler(this.ginTimer_Tick);
+            // 
+            // gin1tonic5button
+            // 
+            this.gin1tonic5button.Enabled = false;
+            this.gin1tonic5button.FlatAppearance.BorderSize = 0;
+            this.gin1tonic5button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gin1tonic5button.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gin1tonic5button.Location = new System.Drawing.Point(35, 285);
+            this.gin1tonic5button.Name = "gin1tonic5button";
+            this.gin1tonic5button.Size = new System.Drawing.Size(200, 40);
+            this.gin1tonic5button.TabIndex = 25;
+            this.gin1tonic5button.Text = "1:5";
+            this.gin1tonic5button.UseVisualStyleBackColor = true;
+            // 
+            // gin1tonic3button
+            // 
+            this.gin1tonic3button.Enabled = false;
+            this.gin1tonic3button.FlatAppearance.BorderSize = 0;
+            this.gin1tonic3button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gin1tonic3button.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gin1tonic3button.Location = new System.Drawing.Point(35, 555);
+            this.gin1tonic3button.Name = "gin1tonic3button";
+            this.gin1tonic3button.Size = new System.Drawing.Size(200, 40);
+            this.gin1tonic3button.TabIndex = 26;
+            this.gin1tonic3button.Text = "1:3";
+            this.gin1tonic3button.UseVisualStyleBackColor = true;
+            // 
+            // moodbutton
+            // 
+            this.moodbutton.Enabled = false;
+            this.moodbutton.FlatAppearance.BorderSize = 0;
+            this.moodbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moodbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moodbutton.Location = new System.Drawing.Point(300, 285);
+            this.moodbutton.Name = "moodbutton";
+            this.moodbutton.Size = new System.Drawing.Size(200, 40);
+            this.moodbutton.TabIndex = 27;
+            this.moodbutton.Text = "MOOD";
+            this.moodbutton.UseVisualStyleBackColor = true;
+            // 
+            // gin1tonic1button
+            // 
+            this.gin1tonic1button.Enabled = false;
+            this.gin1tonic1button.FlatAppearance.BorderSize = 0;
+            this.gin1tonic1button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gin1tonic1button.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gin1tonic1button.Location = new System.Drawing.Point(565, 285);
+            this.gin1tonic1button.Name = "gin1tonic1button";
+            this.gin1tonic1button.Size = new System.Drawing.Size(200, 40);
+            this.gin1tonic1button.TabIndex = 28;
+            this.gin1tonic1button.Text = "1:1";
+            this.gin1tonic1button.UseVisualStyleBackColor = true;
+            // 
+            // randombutton
+            // 
+            this.randombutton.Enabled = false;
+            this.randombutton.FlatAppearance.BorderSize = 0;
+            this.randombutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.randombutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randombutton.Location = new System.Drawing.Point(565, 555);
+            this.randombutton.Name = "randombutton";
+            this.randombutton.Size = new System.Drawing.Size(200, 40);
+            this.randombutton.TabIndex = 29;
+            this.randombutton.Text = "RANDOM";
+            this.randombutton.UseVisualStyleBackColor = true;
+            // 
+            // console
+            // 
+            this.console.BackColor = System.Drawing.Color.Transparent;
+            this.console.FlatAppearance.BorderSize = 0;
+            this.console.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.console.Location = new System.Drawing.Point(759, 30);
+            this.console.Name = "console";
+            this.console.Size = new System.Drawing.Size(40, 40);
+            this.console.TabIndex = 6;
+            this.console.Text = ">";
+            this.console.UseVisualStyleBackColor = false;
+            this.console.Click += new System.EventHandler(this.console_Click);
+            // 
+            // tonicTimer
+            // 
+            this.tonicTimer.Tick += new System.EventHandler(this.tonicTimer_Tick);
+            // 
+            // confirm_button
+            // 
+            this.confirm_button.BackColor = System.Drawing.Color.Transparent;
+            this.confirm_button.Enabled = false;
+            this.confirm_button.FlatAppearance.BorderSize = 0;
+            this.confirm_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirm_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirm_button.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.confirm_button.Location = new System.Drawing.Point(300, 425);
+            this.confirm_button.Name = "confirm_button";
+            this.confirm_button.Size = new System.Drawing.Size(200, 40);
+            this.confirm_button.TabIndex = 30;
+            this.confirm_button.Text = "RANDOM";
+            this.confirm_button.UseVisualStyleBackColor = false;
+            this.confirm_button.Click += new System.EventHandler(this.confirm_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1168, 653);
+            this.ClientSize = new System.Drawing.Size(800, 620);
             this.Controls.Add(this.menu);
+            this.Controls.Add(this.confirm_button);
+            this.Controls.Add(this.console);
+            this.Controls.Add(this.randombutton);
+            this.Controls.Add(this.gin1tonic1button);
+            this.Controls.Add(this.moodbutton);
+            this.Controls.Add(this.gin1tonic3button);
+            this.Controls.Add(this.gin1tonic5button);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.mood);
-            this.Controls.Add(this.close);
-            this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.outputBox);
             this.Controls.Add(this.random);
             this.Controls.Add(this.gin1tonic1);
             this.Controls.Add(this.gin1tonic3);
             this.Controls.Add(this.gin1tonic5);
-            this.Controls.Add(this.Frequency);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "/";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.random)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gin1tonic1)).EndInit();
@@ -391,7 +439,6 @@
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -400,7 +447,6 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
-        private System.Windows.Forms.Label Frequency;
         private System.Windows.Forms.PictureBox gin1tonic5;
         private System.Windows.Forms.PictureBox gin1tonic3;
         private System.Windows.Forms.PictureBox gin1tonic1;
@@ -413,11 +459,6 @@
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.PictureBox mood;
         private System.Windows.Forms.Timer timer5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel menu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
@@ -426,5 +467,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label Username;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer ginTimer;
+        private System.Windows.Forms.Button gin1tonic5button;
+        private System.Windows.Forms.Button gin1tonic3button;
+        private System.Windows.Forms.Button moodbutton;
+        private System.Windows.Forms.Button gin1tonic1button;
+        private System.Windows.Forms.Button randombutton;
+        private System.Windows.Forms.Button console;
+        private System.Windows.Forms.Timer tonicTimer;
+        private System.Windows.Forms.Button confirm_button;
     }
 }

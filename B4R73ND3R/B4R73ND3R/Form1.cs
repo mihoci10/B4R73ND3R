@@ -19,6 +19,7 @@ namespace B4R73ND3R
         private BrainReader bRdr = new BrainReader();
         private FFT_Analyzer fft = new FFT_Analyzer();
         private List<List<float>> dataChunk = new List<List<float>>();
+        private DateTime lastTime;
 
         public Form1()
         {
@@ -74,11 +75,11 @@ namespace B4R73ND3R
 
         void resetDataChunk()
         {
-            if (dataChunk.Count > 0)
+            if (dataChunk.Count > 0 ||lastTime != null)
             {
                 for (int i = 0; i < dataChunk.Count; i++)
                 {
-                    fft.doFFT(dataChunk[i]);
+                    fft.doFFT(dataChunk[i], (lastTime - DateTime.Now).TotalMilliseconds);
                 }
             }
 
@@ -86,6 +87,8 @@ namespace B4R73ND3R
 
             for (int i = 0; i < 17; i++)
                 dataChunk.Add(new List<float>());
+
+            lastTime = DateTime.Now;
         }
         ArduinoComands arduino = new ArduinoComands();
 
@@ -118,6 +121,11 @@ namespace B4R73ND3R
                 dataChunk[i].Add(bRdr.currentDataBuffer[i]);
                 outputBox.Text += "Channel " + i.ToString() + ": " + bRdr.currentDataBuffer[i] + "\n";
             }
+
+            if (dataChunk[0].Count == 256)
+            {
+                resetDataChunk();
+            }
         }
 
         private void Ch1_Click(object sender, EventArgs e)
@@ -132,7 +140,7 @@ namespace B4R73ND3R
 
         private void ChunkTimer_Tick(object sender, EventArgs e)
         {
-            resetDataChunk();
+            //resetDataChunk();
         }
 
         Color red = Color.Red;

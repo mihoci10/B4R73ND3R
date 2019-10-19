@@ -22,7 +22,7 @@ namespace B4R73ND3R.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace B4R73ND3R.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("B4R73ND3R.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace B4R73ND3R.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,17 +63,7 @@ namespace B4R73ND3R.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap EPIC_KUZARC {
-            get {
-                object obj = ResourceManager.GetObject("EPIC KUZARC", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap EPIC_KUZARC2 {
+        public static System.Drawing.Bitmap EPIC_KUZARC2 {
             get {
                 object obj = ResourceManager.GetObject("EPIC KUZARC2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +73,7 @@ namespace B4R73ND3R.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap insight_rich_change_poor_joelson {
+        public static System.Drawing.Bitmap insight_rich_change_poor_joelson {
             get {
                 object obj = ResourceManager.GetObject("insight_rich_change_poor_joelson", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

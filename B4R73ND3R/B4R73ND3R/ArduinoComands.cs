@@ -319,20 +319,28 @@ namespace Gtec.ArduinoComands
 
         #endregion
 
-        public void Pump(int St, int Time)
+        public void Pump(int StT, int StG)
         {
-            int pump = 0;
-            if (St == 1) {
-                pump = 3;
-                    }
+            if (StG > StT)
+            {
+                SetDigitalIO(3, 255);
+                SetDigitalIO(11, 255);
+                //timer StT
+                SetDigitalIO(3, 0);
+                //Timer StG
+                SetDigitalIO(11, 0);
+            }
             else
             {
-                pump = 11;
+                SetDigitalIO(3, 255);
+                SetDigitalIO(11, 255);
+                //timer StG
+                SetDigitalIO(11, 0);
+                //Timer StT
+                SetDigitalIO(3, 0);
             }
 
-            SetDigitalIO(pump, 240);
-            Thread.Sleep(Time);
-            SetDigitalIO(pump, 0);
+            
         }
     }
 }

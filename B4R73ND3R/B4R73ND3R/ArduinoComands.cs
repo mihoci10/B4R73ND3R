@@ -100,7 +100,7 @@ namespace Gtec.ArduinoComands
         /// Connects to a <see cref="ArduinoGinTonic"/> device.
         /// </summary>
         /// <param name="comPort">The COM port to connect to.</param>
-        public void Connect(string comPort)
+        public bool Connect(string comPort)
         {
             if (comPort == null)
                 throw new NullReferenceException("Invalid input.");
@@ -152,12 +152,13 @@ namespace Gtec.ArduinoComands
 
                 throw new System.IO.IOException("Could not open device");
             }
+            return _connected;
         }
 
         /// <summary>
         /// Disconnects from a <see cref="ArduinoGinTonic"/> device. 
         /// </summary>
-        public void Disconnect()
+        public bool Disconnect()
         {
             //if connected
             if (_connected || _serialPort != null)
@@ -187,6 +188,7 @@ namespace Gtec.ArduinoComands
                     _serialPort = null;
                 }
             }
+            return _connected;
         }
 
         /// <summary>

@@ -307,7 +307,6 @@
             // 
             // gin1tonic5button
             // 
-            this.gin1tonic5button.Enabled = false;
             this.gin1tonic5button.FlatAppearance.BorderSize = 0;
             this.gin1tonic5button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gin1tonic5button.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,10 +316,10 @@
             this.gin1tonic5button.TabIndex = 25;
             this.gin1tonic5button.Text = "1:5";
             this.gin1tonic5button.UseVisualStyleBackColor = true;
+            this.gin1tonic5button.Click += new System.EventHandler(this.gin1tonic5button_Click);
             // 
             // gin1tonic3button
             // 
-            this.gin1tonic3button.Enabled = false;
             this.gin1tonic3button.FlatAppearance.BorderSize = 0;
             this.gin1tonic3button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gin1tonic3button.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -330,10 +329,10 @@
             this.gin1tonic3button.TabIndex = 26;
             this.gin1tonic3button.Text = "1:3";
             this.gin1tonic3button.UseVisualStyleBackColor = true;
+            this.gin1tonic3button.Click += new System.EventHandler(this.gin1tonic3button_Click_1);
             // 
             // moodbutton
             // 
-            this.moodbutton.Enabled = false;
             this.moodbutton.FlatAppearance.BorderSize = 0;
             this.moodbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.moodbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -343,10 +342,10 @@
             this.moodbutton.TabIndex = 27;
             this.moodbutton.Text = "MOOD";
             this.moodbutton.UseVisualStyleBackColor = true;
+            this.moodbutton.Click += new System.EventHandler(this.moodbutton_Click);
             // 
             // gin1tonic1button
             // 
-            this.gin1tonic1button.Enabled = false;
             this.gin1tonic1button.FlatAppearance.BorderSize = 0;
             this.gin1tonic1button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gin1tonic1button.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -356,10 +355,10 @@
             this.gin1tonic1button.TabIndex = 28;
             this.gin1tonic1button.Text = "1:1";
             this.gin1tonic1button.UseVisualStyleBackColor = true;
+            this.gin1tonic1button.Click += new System.EventHandler(this.gin1tonic1button_Click);
             // 
             // randombutton
             // 
-            this.randombutton.Enabled = false;
             this.randombutton.FlatAppearance.BorderSize = 0;
             this.randombutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.randombutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -369,6 +368,7 @@
             this.randombutton.TabIndex = 29;
             this.randombutton.Text = "RANDOM";
             this.randombutton.UseVisualStyleBackColor = true;
+            this.randombutton.Click += new System.EventHandler(this.randombutton_Click);
             // 
             // console
             // 
@@ -399,7 +399,6 @@
             this.confirm_button.Name = "confirm_button";
             this.confirm_button.Size = new System.Drawing.Size(200, 40);
             this.confirm_button.TabIndex = 30;
-            this.confirm_button.Text = "RANDOM";
             this.confirm_button.UseVisualStyleBackColor = false;
             this.confirm_button.Click += new System.EventHandler(this.confirm_button_Click);
             // 

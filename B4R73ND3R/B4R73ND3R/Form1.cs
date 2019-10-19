@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Gtec.Unicorn;
 using Gtec.ArduinoComands;
 
+
 namespace B4R73ND3R
 {
     public partial class Form1 : Form
@@ -126,10 +127,11 @@ namespace B4R73ND3R
         bool connected = false;
         private void connect_Click(object sender, EventArgs e)
         {
-            if (!connected) connected = arduino.Connect(comboBox1.Text);
-            else connected = arduino.Disconnect();
-            if (connected)
+
+            if (!connected)
             {
+                connected = arduino.Connect(comboBox1.Text);
+                if (!connected) return;
                 connect.Text = "DISCONNECT";
                 connect.BackColor = Color.Red;
                 timer1.Start();
@@ -141,18 +143,14 @@ namespace B4R73ND3R
             }
             else
             {
+                arduino.tonic_off();
+                arduino.gin_off();
+                ginTimer.Stop();
+                tonicTimer.Stop();
                 connect.Text = "CONNECT";
                 connect.BackColor = Color.LimeGreen;
-                timer1.Stop();
-                timer2.Stop();
-                timer3.Stop();
-                timer4.Stop();
-                timer5.Stop();
-                gin1tonic5.BackColor = bg;
-                gin1tonic3.BackColor = bg;
-                gin1tonic1.BackColor = bg;
-                random.BackColor = bg;
-                mood.BackColor = bg;
+                stopBlink();
+                connected = arduino.Disconnect();
             }
             timer1.Enabled = connected;
             timer2.Enabled = connected;
@@ -160,6 +158,20 @@ namespace B4R73ND3R
             timer4.Enabled = connected;
             timer5.Enabled = connected;
 
+        }
+
+        private void stopBlink()
+        {
+            timer1.Stop();
+            timer2.Stop();
+            timer3.Stop();
+            timer4.Stop();
+            timer5.Stop();
+            gin1tonic5.BackColor = bg;
+            gin1tonic3.BackColor = bg;
+            gin1tonic1.BackColor = bg;
+            random.BackColor = bg;
+            mood.BackColor = bg;
         }
 
         private void comboBox1_Click(object sender, EventArgs e)
@@ -195,31 +207,60 @@ namespace B4R73ND3R
         bool _tonic = false;
         private void tonicTimer_Tick(object sender, EventArgs e)
         {
-            _tonic = !_tonic;
-            if (_tonic) arduino.tonic_on();
-            else
-            {
-                arduino.tonic_off();
-                tonicTimer.Stop();
-            }
+            arduino.tonic_off();
+            tonicTimer.Stop();
         }
         bool _gin = false;
         private void ginTimer_Tick(object sender, EventArgs e)
         {
-            _gin = !_gin;
-            if (_gin) arduino.gin_on();
-            else
-            {
-                arduino.gin_off();
-                ginTimer.Stop();
-            }
-
+            arduino.gin_off();
+            ginTimer.Stop();
         }
 
         private void confirm_button_Click(object sender, EventArgs e)
         {
+            stopBlink();
+            arduino.gin_on();
             ginTimer.Start();
+            arduino.tonic_on();
             tonicTimer.Start();
+        }
+
+        private void gin1tonic5button_Click(object sender, EventArgs e)
+        {
+            setTimers(tonic: 5, button: gin1tonic5button.Text);
+        }
+
+        private void setTimers(float gin=1, float tonic=1, string button="")
+        {
+            ginTimer.Interval = (int) (60000*gin);
+            tonicTimer.Interval = (int) (60000 * tonic);
+            confirm_button.Enabled = true;
+            confirm_button.Text = button;
+        }
+
+        private void gin1tonic3button_Click_1(object sender, EventArgs e)
+        {
+            setTimers(1.5f, 4.5f, gin1tonic3button.Text);
+        }
+
+        private void gin1tonic1button_Click(object sender, EventArgs e)
+        {
+            setTimers(3, 3, gin1tonic1button.Text);
+        }
+
+        private void randombutton_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            int ran = r.Next(1, 4);
+            setTimers(6-ran, ran, randombutton.Text);
+        }
+
+        private void moodbutton_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            int ran = r.Next(1, 4);
+            setTimers(6 - ran, ran, moodbutton.Text);
         }
 
         private void timer2_Tick(object sender, EventArgs e)
